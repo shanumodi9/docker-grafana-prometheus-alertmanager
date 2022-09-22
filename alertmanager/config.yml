@@ -12,5 +12,5 @@ receivers:
             smarthost: smtp.gmail.com:587
             auth_username: varghesekurian161@gmail.com
             auth_identity: varghesekurian161@gmail.com
-            auth_password: cbdukvtozaggrqgl
+            auth_password: 
             send_resolved: true
