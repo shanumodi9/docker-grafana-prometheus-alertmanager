@@ -2,10 +2,11 @@ global:
     resolve_timeout: 1m
     
 route:
- receiver: "email"
+ #receiver: "email"
+ receiver: "slack"
 
 receivers: 
-- name: 'email'    
+- name: 'email'  
   email_configs:
   - to: shanumodi9@gmail.com
     from: shanumodi9@gmail.com
