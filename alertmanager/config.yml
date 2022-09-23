@@ -40,7 +40,7 @@ receivers:
     auth_password: ${{ secrets.PASSWORD }}
     send_resolved: true
 
-
+- name: 'slack'
   slack_configs:
   - api_url: 'https://hooks.slack.com/services/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'
     channel: 'testing-channel'
