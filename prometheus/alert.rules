@@ -48,7 +48,7 @@ groups:
       severity: critical
     annotations:
       summary: "java down"
-      description: "Jenkins container is down for more than 30 seconds."
+      description: "Java container is down for more than 30 seconds."
 
   - alert: high_cpu
     expr: sum(rate(container_cpu_usage_seconds_total{name="java"}[1m])) / count(node_cpu_seconds_total{mode="system"}) * 100 > 10
@@ -57,7 +57,7 @@ groups:
       severity: warning
     annotations:
       summary: "high CPU usage"
-      description: "Jenkins CPU usage is {{ humanize $value}}%."
+      description: " CPU usage is {{ humanize $value}}%."
 
   - alert: high_memory
     expr: sum(container_memory_usage_bytes{name="java"}) > 1200000000
