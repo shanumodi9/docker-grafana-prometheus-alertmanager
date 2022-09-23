@@ -48,6 +48,6 @@ receivers:
     smarthost: smtp.gmail.com:587
     auth_username:  shanutelepacket9@gmail.com
     auth_identity:  shanutelepacket9@gmail.com
-            auth_password: 
-            send_resolved: true
+    auth_password: 
+    send_resolved: true
 
