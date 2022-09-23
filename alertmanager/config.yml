@@ -2,10 +2,18 @@ global:
     resolve_timeout: 1m
 
 route:
-  receiver: 'slack-notifications_gmail'
+  routes:
+   - match:
+       severity: page
+     continue: true
+     receiver: 'slack-notifications'
+   - match:
+       severity: page
+     receiver: 'email'
+
 
 receivers:
-- name: 'slack-notifications_gmail'
+- name: 'slack-notifications'
   slack_configs:
   - api_url:'https://hooks.slack.com/services/T0/B0/V2'
     channel: '#monitoring-instances'
@@ -33,7 +41,7 @@ receivers:
        {{ range .Labels.SortedPairs }} • *{{ .Name }}:* `{{ .Value }}`
        {{ end }}
      {{ end }} 
-     
+- name: 'email'    
   email_configs:
   - to: shanutelepacket9@gmail.com
     from:  shanutelepacket9@gmail.com
