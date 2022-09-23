@@ -16,9 +16,7 @@ receivers:
             send_resolved: true
 
 
-global:
-  resolve_timeout: 1m
-  slack_api_url: 'https://hooks.slack.com/services/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'
+
 
 route:
   receiver: 'slack-notifications'
@@ -26,7 +24,8 @@ route:
 receivers:
 - name: 'slack-notifications'
   slack_configs:
-  - channel: '#monitoring-instances'
+  - api_url:'https://hooks.slack.com/services/T0/B0/V2'
+    channel: '#monitoring-instances'
     send_resolved: true
     icon_url: https://avatars3.githubusercontent.com/u/3380462
     title: |-
