@@ -1,9 +1,9 @@
 global:
     resolve_timeout: 1m
-    slack_api_url: 'https://hooks.slack.com/services/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'
+    
 route:
  receiver: "email"
- receiver: "slack"
+
 receivers: 
 - name: 'email'    
   email_configs:
@@ -17,5 +17,6 @@ receivers:
 
 
   slack_configs:
-  - channel: 'testing-channel'
+  - api_url: 'https://hooks.slack.com/services/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'
+    channel: 'testing-channel'
     send_resolved: true
