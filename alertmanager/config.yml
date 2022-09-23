@@ -1,7 +1,6 @@
 global:
     resolve_timeout: 1m
-   
-
+    slack_api_url: 'https://hooks.slack.com/services/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'
 route:
  receiver: 'email'
  
@@ -16,3 +15,7 @@ receivers:
     auth_password: ${{ secrets.password }}
     send_resolved: true
 
+
+  slack_configs:
+  - channel: '#monitoring-instances'
+    send_resolved: true
