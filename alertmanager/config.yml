@@ -17,5 +17,5 @@ receivers:
 
 
   slack_configs:
-  - channel: '#monitoring-instances'
+  - channel: 'testing-channel'
     send_resolved: true
