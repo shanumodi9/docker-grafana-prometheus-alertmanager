@@ -42,7 +42,7 @@ groups:
 - name: containers
   rules:
   - alert: java_server_down
-    expr: absent(container_memory_usage_bytes{name="java"})
+    expr: absent(container_memory_usage_bytes{name="dockerjavamysql_javaapp_1"})
     for: 30s
     labels:
       severity: critical
@@ -50,8 +50,8 @@ groups:
       summary: "java down"
       description: "Java container is down for more than 30 seconds."
 
-  - alert: high_cpu
-    expr: sum(rate(container_cpu_usage_seconds_total{name="java"}[1m])) / count(node_cpu_seconds_total{mode="system"}) * 100 > 10
+  - alert: java_high_cpu
+    expr: sum(rate(container_cpu_usage_seconds_total{name="dockerjavamysql_javaapp_1"}[1m])) / count(node_cpu_seconds_total{mode="system"}) * 100 > 10
     for: 30s
     labels:
       severity: warning
@@ -59,12 +59,46 @@ groups:
       summary: "high CPU usage"
       description: " CPU usage is {{ humanize $value}}%."
 
-  - alert: high_memory
-    expr: sum(container_memory_usage_bytes{name="java"}) > 1200000000
+  - alert: java_high_memory
+    expr: sum(container_memory_usage_bytes{name="dockerjavamysql_javaapp_1"}) > 1200000000
     for: 30s
     labels:
       severity: warning
     annotations:
       summary: " high memory usage"
       description: "memory consumption is at {{ humanize $value}}."
+      
+
+
+
+  - alert: mysql_server_down
+    expr: absent(container_memory_usage_bytes{name="dockerjavamysql_mysqlapp_1"})
+    for: 30s
+    labels:
+      severity: critical
+    annotations:
+      summary: "java down"
+      description: "Java container is down for more than 30 seconds."
+
+  - alert: mysql_high_cpu
+    expr: sum(rate(container_cpu_usage_seconds_total{name="dockerjavamysql_mysqlapp_1"}[1m])) / count(node_cpu_seconds_total{mode="system"}) * 100 > 10
+    for: 30s
+    labels:
+      severity: warning
+    annotations:
+      summary: "high CPU usage"
+      description: " CPU usage is {{ humanize $value}}%."
+
+  - alert: mysql_high_memory
+    expr: sum(container_memory_usage_bytes{name="dockerjavamysql_mysqlapp_1"}) > 1200000000
+    for: 30s
+    labels:
+      severity: warning
+    annotations:
+      summary: " high memory usage"
+      description: "memory consumption is at {{ humanize $value}}."
+
+
+      
+  
 
