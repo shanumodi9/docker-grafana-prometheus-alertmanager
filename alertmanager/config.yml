@@ -16,6 +16,6 @@ receivers:
             auth_password: npngdcmmiopspktn
             send_resolved: true
       slack_configs:
-          - api_url: 'https://hooks.slack.com/services/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'
+          - api_url: 'https://hooks.slack.com/services/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'
             channel: '#test123'
             send_resolved: true
