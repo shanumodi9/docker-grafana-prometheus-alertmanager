@@ -42,6 +42,6 @@ receivers:
 
 - name: 'slack'
   slack_configs:
-  - api_url: 'https://hooks.slack.com/services/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'
-    channel: '#testing-channel'
+  - api_url: 'https://hooks.slack.com/services/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'
+    channel: '#test123'
     send_resolved: true
