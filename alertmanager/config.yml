@@ -2,27 +2,10 @@ global:
     resolve_timeout: 1m
 
 route:
-    receiver: 'gmail'
+  receiver: 'slack-notifications_gmail'
 
 receivers:
-    - name: 'gmail'
-      email_configs:
-          - to: shanutelepacket9@gmail.com
-            from:  shanutelepacket9@gmail.com
-            smarthost: smtp.gmail.com:587
-            auth_username:  shanutelepacket9@gmail.com
-            auth_identity:  shanutelepacket9@gmail.com
-            auth_password: 
-            send_resolved: true
-
-
-
-
-route:
-  receiver: 'slack-notifications'
-
-receivers:
-- name: 'slack-notifications'
+- name: 'slack-notifications_gmail'
   slack_configs:
   - api_url:'https://hooks.slack.com/services/T0/B0/V2'
     channel: '#monitoring-instances'
@@ -50,3 +33,13 @@ receivers:
        {{ range .Labels.SortedPairs }} • *{{ .Name }}:* `{{ .Value }}`
        {{ end }}
      {{ end }} 
+     
+  email_configs:
+  - to: shanutelepacket9@gmail.com
+    from:  shanutelepacket9@gmail.com
+    smarthost: smtp.gmail.com:587
+    auth_username:  shanutelepacket9@gmail.com
+    auth_identity:  shanutelepacket9@gmail.com
+            auth_password: 
+            send_resolved: true
+
