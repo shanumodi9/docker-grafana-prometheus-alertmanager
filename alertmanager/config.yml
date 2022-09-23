@@ -37,7 +37,7 @@ receivers:
     smarthost: smtp.gmail.com:587
     auth_username: shanumodi9@gmail.com
     auth_identity: shanumodi9@gmail.com
-    auth_password: ${{ secrets.PASSWORD }}
+    auth_password: ${{ secrets.AUTH_PASSWORD }}
     send_resolved: true
 
 - name: 'slack'
